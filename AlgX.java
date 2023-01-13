@@ -13,7 +13,7 @@ public class AlgX {
 		for (int i:a.rs.keySet()) rs.put(i,new HashSet<>(a.rs.get(i)));
 		for (int i:a.cs.keySet()) cs.put(i,new HashSet<>(a.cs.get(i)));
 		s.addAll(a.s); s.add(y); Set<Integer> r=new HashSet<>();
-		for (int x:rs.get(y)) {for (int z:cs.get(x)) r.add(z); cs.remove(x);}
+		for (int c:rs.get(y)) {r.addAll(cs.get(c)); cs.remove(c);}
 		rs.keySet().removeAll(r); for (Set<Integer> c:cs.values()) c.removeAll(r);
 	}
 	int minc() {
