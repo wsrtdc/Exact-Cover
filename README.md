@@ -3,7 +3,7 @@ AlgX.java: Java implementation of the exact cover problem in only 28 lines.
 
 Modified Algorithm X in minimal implementation, pretty small and hopefully comprehensible and comprehensive. Short explications can be found in doc.pdf.
 
-AlgXMain.java contains some examples, output is as follows:
+AlgXMain.java contains some examples, the output is as follows (last 2 lines are a Sudoku puzzle, input and output):
 
 ```
 001
