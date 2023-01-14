@@ -1,8 +1,11 @@
 import java.util.*;
+import java.util.function.*;
 
 public class AlgX {
 	Map<Integer,Set<Integer>> rs=new TreeMap<>(),cs=new TreeMap<>();
 	Set<Integer> s=new TreeSet<>();
+	static Consumer<Set<Integer>> c;
+	
 	AlgX(int[][] a) {
 		for (int y=0;y<a.length;y++) for (int x=0;x<a[y].length;x++) if (a[y][x]!=0) {
 			cs.computeIfAbsent(x,i->new HashSet<>()).add(y);
@@ -16,13 +19,10 @@ public class AlgX {
 		for (int c:rs.get(y)) {r.addAll(cs.get(c)); cs.remove(c);}
 		rs.keySet().removeAll(r); for (Set<Integer> c:cs.values()) c.removeAll(r);
 	}
-	int minc() {
-		int min=Integer.MAX_VALUE,c=-1,s;
-		for (int i:cs.keySet()) if ((s=cs.get(i).size())<min) {min=s; c=i;}
-		return c;
-	}
 	void solve() {
-		if (cs.isEmpty()) System.out.println("Solution: "+s);
-		else for (int y:cs.get(minc())) new AlgX(this,y).solve();
+		if (cs.isEmpty()) c.accept(s); else
+		for (int y:Collections.min(cs.values(),new Comparator<Set<?>>() {
+			public int compare(Set<?> o1,Set<?> o2){return Integer.compare(o1.size(),o2.size());}
+		})) new AlgX(this,y).solve();
 	}
 }
