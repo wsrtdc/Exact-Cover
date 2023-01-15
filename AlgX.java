@@ -2,8 +2,8 @@ import java.util.*;
 import java.util.function.*;
 
 public class AlgX {
-	Map<Integer,Set<Integer>> rs=new TreeMap<>(),cs=new TreeMap<>();
-	Set<Integer> s=new TreeSet<>();
+	Map<Integer,Set<Integer>> rs=new HashMap<>(),cs=new HashMap<>();
+	Set<Integer> s=new HashSet<>();
 	static Consumer<Set<Integer>> c;
 	
 	AlgX(int[][] a) {

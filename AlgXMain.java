@@ -67,6 +67,8 @@ public class AlgXMain{
 			char ch=su.charAt(i);
 			if(ch>'0') algx=new AlgX(algx,i*N+ch-'1');
 		}
+		long t=System.nanoTime();
 		algx.solve();
+		System.out.println("time="+(System.nanoTime()-t)+" ns");
 	}
 }
